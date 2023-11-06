@@ -11,7 +11,7 @@ const Job = ({ data }) => {
  
   const handleClick = () => {
     setIsAdded(!isAdded);
-    dispatch({ type: 'ADD_TO_FAVORITE', payload: data });
+    dispatch({ type: 'ADD_TO_FAVORITE', payload: data.company_name });
   }
  
   return(

@@ -3,7 +3,7 @@ import "./App.css";
 import MainSearch from "./components/MainSearch";
 import CompanySearchResults from "./components/CompanySearchResults";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Preferiti from "./components/preference";
+import Favourites from "./components/preference";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainSearch />} />
         <Route path="/:company" element={<CompanySearchResults />} />
-        <Route path="/preference" element={<Preferiti/>} />
+        <Route path="/preference" element={<Favourites/>} />
       </Routes>
     </BrowserRouter>
   );
