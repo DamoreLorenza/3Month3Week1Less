@@ -1,20 +1,23 @@
-import { Col,  ListGroup,  Row } from 'react-bootstrap';
+import { Col,  Container,  ListGroup,  Row } from 'react-bootstrap';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import {  Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import { removeFromFavoriteAction } from '../redux/actions';
 
 
 
 
 
 const Favourites = () => {
-  const favouriteList = useSelector((state) => state.Favourites.content)
-  const dispatch = useDispatch()
+  const favouriteList = useSelector((state) => state.favourites.content);
+  const dispatch = useDispatch();
 
   return (
+    <Container>
+      <Link to='/MainSearch'>return home</Link>
     <Row>
       <Col sm={12}>
        <ListGroup>
@@ -22,8 +25,7 @@ const Favourites = () => {
            favouriteList.map((fav, i)=>(
             <ListGroup.Item key={i}>
                 <Link to={`/${fav}`}>{fav}</Link>
-                <Button onClick={()=>{dispatch({type:'REMOVE_FROM_FAVOURITE',
-            payload: i})}}>Delete</Button>
+                <Button onClick={()=>{dispatch(removeFromFavoriteAction(i))}}>Delete</Button>
             </ListGroup.Item>
            )
            )
@@ -33,6 +35,7 @@ const Favourites = () => {
       </Col>
      
     </Row>
+    </Container>
   )
 }
 

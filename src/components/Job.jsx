@@ -2,6 +2,7 @@ import { Row, Col } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
+import { addToFavoriteAction } from '../redux/actions';
 
 
 
@@ -11,7 +12,7 @@ const Job = ({ data }) => {
  
   const handleClick = () => {
     setIsAdded(!isAdded);
-    dispatch({ type: 'ADD_TO_FAVORITE', payload: data.company_name });
+    dispatch(addToFavoriteAction(data.company_name));
   }
  
   return(
